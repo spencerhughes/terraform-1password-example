@@ -10,3 +10,11 @@ resource "onepassword_item" "example_service_account" {
     length = 40
   }
 }
+
+output "example_username" {
+  value = resource.onepassword_item.example_service_account.username
+}
+
+output "example_password" {
+  value = nonsensitive(resource.onepassword_item.example_service_account.password)
+}
